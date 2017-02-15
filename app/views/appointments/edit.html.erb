@@ -1,4 +1,4 @@
-<h1>Add an Appointment</h1>
+<h1>Edit Appointment</h1>
 <hr />
 
 <%= form_for @appointments do |f| %>
@@ -9,6 +9,6 @@
   <%= f.text_field :appointment_time, required: true, placeholder: 'Time' %>
   <%= f.submit nil, class: 'btn' %>
 <% end %>
-<br />
-<%= link_to 'All Doctors', doctors_path %> |
+
+<%= link_to 'All Doctors', doctors_path %>
 <%= link_to 'All Patients', patients_path %>

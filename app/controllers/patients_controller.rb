@@ -1,10 +1,14 @@
 class PatientsController < ApplicationController
-   before_action :set_patient, only: [:edit, :update, :destroy]
+   before_action :set_patient, only: [:show, :edit, :update, :destroy]
 
   def index
     @patients = Patient.all
   end 
   
+  def show
+
+  end
+
   def new
     @patient = Patient.new
   end
@@ -31,6 +35,7 @@ class PatientsController < ApplicationController
 
   def destroy 
     @patient.destroy
+    flash[:success] = "Patient DESTROYED"
       redirect_to patients_path
   end 
 

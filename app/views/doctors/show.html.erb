@@ -20,6 +20,7 @@
           <strong><%= appointments.patient.last_name %>, <%= appointments.patient.first_name %></strong>
           -- Date: <%= appointments.appointment_date %>
           -- Time: <%= appointments.appointment_time %> 
+          <%= link_to 'Reschedule'%> |
           <%= link_to 'Remove', appointment_path(appointments), method: :delete %>
         </h6>
         </li>
@@ -29,5 +30,5 @@
     <h5>No Patients Found</h5>
   <% end %>
 
-  <%= link_to 'All Doctors', doctors_path %>
+  <%= link_to 'All Doctors', doctors_path %> |
   <%= link_to 'Edit', edit_doctor_path(@doctor)%>

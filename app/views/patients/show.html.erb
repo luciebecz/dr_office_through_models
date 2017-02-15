@@ -1,0 +1,38 @@
+<h1>Patient Profile:<%= @patient.last_name %></h1>
+
+<% unless @patient.last_name.empty? %>
+<p>
+  <h5>
+  <strong>
+    <%= @patient.first_name %>
+    <%= @patient.last_name %>
+  </strong>
+  </h5>
+</p>
+
+<hr />
+<br />
+<% end %>
+  <% if @patient.appointments.any?%>
+    <h5>Appointment for <%= @patient.first_name %><%= @patient.last_name %></h5>
+    <ul>
+      <% @patient.appointments.each do |appointments| %>
+        <li>
+        <h6>
+          <strong>
+            Dr.<%= appointments.doctor.last_name %>
+            -- Date: <%= appointments.appointment_date %>
+            -- Time: <%= appointments.appointment_time %>
+            <%= link_to 'Reschedule Appointment' %> |
+            <%= link_to 'Cancel Appointment', appointment_path(appointments), method: :delete, data: { confirm: 'Really Cancel Appointment?' } %>
+          </strong>
+        </h6>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <h5>No Appointments Scheduled</h5>
+<% end %>
+<br />
+<%= link_to 'All Patients', patients_path %> |
+<%= link_to 'Add Appointment', new_appointment_path%>
