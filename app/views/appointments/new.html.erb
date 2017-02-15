@@ -1,0 +1,14 @@
+<h1>Add an Appointment</h1>
+<hr />
+
+<%= form_for @appointments do |f| %>
+  
+  <%= f.select :doctor_id, options_for_select(@doctors) %>
+  <%= f.select :patient_id, options_for_select(@patients) %>
+  <%= f.text_field :appointment_date, required: true, placeholder: 'Date' %>
+  <%= f.text_field :appointment_time, required: true, placeholder: 'Time' %>
+  <%= f.submit nil, class: 'btn' %>
+<% end %>
+
+<%= link_to 'All Doctors', doctors_path %>
+<%= link_to 'All Patients', patients_path %>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dr. Office</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+    <body>
+
+      <nav>
+        <div class="nav-wrapper">
+          <a href="/" class="brand-logo">Doctors Office</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li> <%= link_to 'Doctors', doctors_path %></li>
+            <li> <%= link_to 'Patients', patients_path %></li>
+            <li> <%= link_to 'Add Appointment', new_appointment_path %></li>
+          </ul>
+        </div>
+      </nav>
+
+      <% flash.each do |key, value| %>
+        <div class="flash <%= key %>" >
+          <%= value %>
+        </div>
+      <% end %>
+
+      <div class="container">
+        <%= yield %>
+      </div>
+    </html>
